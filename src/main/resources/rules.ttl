@@ -1,0 +1,14 @@
+@prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
+@prefix bpmn:  <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix eo: <http://ikm-group.ch/archiMEO/eo#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+#[1: (?sprocess rdf:type bpmn:SubProcess) (?sprocess bpaas:hasReferencedSubBusinessProcess ?process)	->	(?process rdf:type bpmn:SubProcess)]
+
+#associate the requirements directly to the process
+#[2: (?bpag rdf:type bpaas:BusinessProcessAnnotationGroup) (?bpag bpaas:hasReferencedBusinessProcessRequirement ?req) (?bpag bpaas:hasReferencedBusinessProcess ?bp)	->	(?bp bpaas:hasReferencedBusinessProcessRequirement ?req)]
+
+#associate the Descriptions directly to the workflow
+[3: (?wfag rdf:type bpaas:WorkflowAnnotationGroup) (?wfag bpaas:hasReferencedWorkflowDescription ?des) (?wfag bpaas:hasReferencedWorkflow ?wf)	->	(?wf bpaas:hasReferencedWorkflowDescription ?des)]
